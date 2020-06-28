@@ -3,21 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Weather Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 <body>
-
-
+    <div class="jumbotron jumbotron-fluid bg-secondary">
+        <div class="container">
+          <h1 class="display-4 mx-auto text-white font-weight-bold">Weather Dashboard</h1>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+          <div class="col-sm col-3">
+            <h3>Search for a City:</h3>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="ex. San Francisco" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary bg-primary" type="button" id="button-addon2"><i class="fa fa-search bg-primary" aria-hidden="true"></i></button>
+                  
+                </div>
+              </div>
+          </div>
+          <div class="col-sm col-9">
+            City...
+          </div>
+        </div>
 
 
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript">
-        
-        var APIKey = "ef5a31cf3e6b80b9a71631a627c91754";
-
-    </script>
+    <script type="text/javascript"></script>
 </body>
   
 </html>
