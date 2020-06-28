@@ -4,10 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Dashboard</title>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    />
+    <link rel="stylesheet"href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 <body>
@@ -21,21 +18,21 @@
           <div class="col-4">
             <h3>Search for a City:</h3>
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="ex. San Francisco" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <input type="text" class="form-control" placeholder="ex. San Francisco" id= text aria-label="Recipient's username" aria-describedby="button-addon2">
                 <div class="input-group-append">
-                  <button class="btn btn-outline-secondary bg-primary" type="button" id="button-addon2"><i class="fa fa-search bg-primary" aria-hidden="true"></i></button>
+                  <button class="btn btn-outline-secondary bg-primary" type="button" id="button"><i class="fa fa-search bg-primary" aria-hidden="true"></i></button>
                 </div>
               </div>
             </div>
           <div class="col-sm-8">
             <div class="container">
                 <div class="d-flex p-2 bd-highlight">
-                    <div id="selectedCity">City...</div>
-                    <div id="currentDate">Current Date</div>
-                    <div id="currentTemp"></div>
-                    <div id="humidity"></div>
-                    <div id="windSpeed"></div>
-                    <div id="uvIndex"></div>
+                    <h3 id="selectedCity">City...</h3>
+                    <h3 id="currentDate">Current Date</h3>
+                    <h3 id="currentTemp"></h3>
+                    <h3 id="humidity"></h3>
+                    <h3 id="windSpeed"></h3>
+                    <h3 id="uvIndex"></h3>
                 </div>
             </div>
           </div>
@@ -50,57 +47,62 @@
                 <div class="col-md-2">
                     <div class="card" style="width: 10rem;">
                         <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                          <p class="card-text">
-                          </p>
+                          <h5 class="card-date" id=card1Date>6/30/2020</h5>
+                          <h6 class="icon1"></h6>
+                          <h6 class="card1Temp"></h6>
+                          <h6 class="card1Humidity"></h6>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-2">
                     <div class="card" style="width: 10rem;">
                         <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                          <p class="card-text"></p>
+                          <h5 class="card-date" id=card2Date>6/30/2020</h5>
+                          <h6 class="icon2"></h6>
+                          <h6 class="card2Temp"></h6>
+                          <h6 class="card2Humidity"></h6>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-2">
                     <div class="card" style="width: 10rem;">
                         <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                          <p class="card-text"></p>
+                          <h5 class="card-date" id=card3Date>6/30/2020</h5>
+                          <h6 class="icon3"></h6>
+                          <h6 class="card3Temp"></h6>
+                          <h6 class="card3Humidity"></h6>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-2">
                     <div class="card" style="width: 10rem;">
                         <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                          <p class="card-text"></p>
+                          <h5 class="card-date" id=card4Date>6/30/2020</h5>
+                          <h6 class="icon4"></h6>
+                          <h6 class="card4Temp"></h6>
+                          <h6 class="card4Humidity"></h6>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-2">
                     <div class="card" style="width: 10rem;">
                         <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                          <p class="card-text"></p>
+                            <h5 class="card-date" id=card5Date>6/30/2020</h5>
+                            <h6 class="icon5"></h6>
+                            <h6 class="card5Temp"></h6>
+                            <h6 class="card5Humidity"></h6>
                         </div>
                     </div>
                 </div>
-              </div>
             </div>
+        </div>
 
 
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript"></script>
+    <script type="text/javascript" src="script.js"></script>
+
 </body>
   
 </html>

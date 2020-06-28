@@ -45,4 +45,14 @@ You are required to submit the following for review:
 
 Pseudo Code
 
-1. 
+1. create format with bootstrap DONE
+
+2. create a search bar with submit feature that will save the history. prepend results below search bar. 
+
+3. use the search feature's find button (onClick) to call api using ajax and write the resutls in the upper right portion of the page.
+
+3a. uv index: need to have that in a box and the background change depending on the range.  research 3 ranges, then apply background color using an if statement.
+
+4. 5 day forecast.  need to research how to get this info and write it to the cards.
+
+
