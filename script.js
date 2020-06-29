@@ -18,7 +18,7 @@ function populateRows(arrayToUse, classToAdd, areaToAddTo) {
       $(areaToAddTo).append(newRow);
     }
 
-  }
+}
 
 //event listener
 $("#button").click(function(event) {
@@ -51,22 +51,33 @@ $("#button").click(function(event) {
           var kelvinTemp = response.main.temp;
           var fahrenheit = Math.round(((kelvinTemp-273.15)*1.8)+32);
           $("#currentTemp").text("Temperature (F) " + fahrenheit + "\u00B0");
+          var lat = response.coord.lat;
+          var long = response.coord.lon;
+          console.log(lat);
+          console.log(long);
+    
+        //5-day forecast 
+        var fiveDayQueryURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + long + "&exclude=hourly,current,minutely&appid=ef5a31cf3e6b80b9a71631a627c91754"
+        console.log(fiveDayQueryURL);
+        $.ajax({
+            url: fiveDayQueryURL,
+            method: "GET"
+        }).then(function(response) {
+            // Log the queryURL
+            console.log(fiveDayQueryURL);
+            // Log the resulting object
+        //       console.log(response);
+        //       // Transfer content to HTML
+        //       $(".cardDate").html("<h6>" + response.name + " Weather Details</h3>");
+        //       var windSpeed = response.wind.speed;
+        //       $("#windSpeed").html("<p>Wind Speed: " +  windSpeed + " mph" + "</p>");
+        //       $("#humidity").text("Humidity: " + response.main.humidity + "%");
+        //       var kelvinTemp = response.main.temp;
+        //       var fahrenheit = Math.round(((kelvinTemp-273.15)*1.8)+32);
+        //       $("#currentTemp").text("Temperature (F) " + fahrenheit + "\u00B0");
+
+        })
     })
-    //5-day forecast 
-    var fiveDayQueryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + newCity + "&appid=ef5a31cf3e6b80b9a71631a627c91754"
-
-    $.ajax({
-        url: fiveDayQueryURL,
-        method: "GET"
-      }).then(function(response) {
-          // Log the queryURL
-          console.log(fiveDayQueryURL);
-          // Log the resulting object
-          console.log(response);
-          // Transfer content to HTML
-
-    })
-
 
     //create an array, push each newCity into the array and append to newDiv
     //see 06-08
