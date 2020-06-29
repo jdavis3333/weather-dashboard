@@ -2,7 +2,8 @@ var newCity;
 var cityHistory = [];
 
 
-
+ //Day
+//  $("#currentDate").text(moment().format("dddd, MMMM Do YYYY"));
 
 
 //function to add rows to page and log history -- see 06-16
@@ -28,9 +29,12 @@ $("#button").click(function(event) {
     localStorage.setItem("newCity", newCity);
     newCity
     
-    //ajax functionality
-    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + newCity + "&appid=ef5a31cf3e6b80b9a71631a627c91754";
+   
 
+    //ajax functionality
+    //Search City
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + newCity + "&appid=ef5a31cf3e6b80b9a71631a627c91754";
+    
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -41,17 +45,29 @@ $("#button").click(function(event) {
           console.log(response);
           // Transfer content to HTML
           $("#selectedCity").html("<h3>" + response.name + " Weather Details</h3>");
-          console.log(selectedCity)
           var windSpeed = response.wind.speed;
-          $("#windSpeed").html("<p>Wind Speed: " +  windSpeed + "</p>");
+          $("#windSpeed").html("<p>Wind Speed: " +  windSpeed + " mph" + "</p>");
           $("#humidity").text("Humidity: " + response.main.humidity + "%");
-          $("#currentTemp").text("Temperature (F) " + response.main.temp);
+          var kelvinTemp = response.main.temp;
+          var fahrenheit = Math.round(((kelvinTemp-273.15)*1.8)+32);
+          $("#currentTemp").text("Temperature (F) " + fahrenheit + "\u00B0");
+    })
+    //5-day forecast 
+    var fiveDayQueryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + newCity + "&appid=ef5a31cf3e6b80b9a71631a627c91754"
 
-
-
-
+    $.ajax({
+        url: fiveDayQueryURL,
+        method: "GET"
+      }).then(function(response) {
+          // Log the queryURL
+          console.log(fiveDayQueryURL);
+          // Log the resulting object
+          console.log(response);
+          // Transfer content to HTML
 
     })
+
+
     //create an array, push each newCity into the array and append to newDiv
     //see 06-08
     // $("<#newDiv>").append(newCity);
