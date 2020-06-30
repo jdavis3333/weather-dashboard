@@ -1,54 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Dashboard</title>
-    <link rel="stylesheet"href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
+
 <body>
     <div class="jumbotron jumbotron-fluid bg-secondary">
         <div class="container">
-          <h1 class="display-4 mx-auto text-white font-weight-bold">Weather Dashboard</h1>
+            <h1 class="display-4 mx-auto text-white font-weight-bold">Weather Dashboard</h1>
         </div>
     </div>
     <div class="container">
         <div class="row">
-          <div class="col-4">
-            <h3>Search for a City:</h3>
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="ex. San Francisco" id= text aria-label="Recipient's username" aria-describedby="button-addon2">
-                <div class="input-group-append">
-                  <button class="btn btn-outline-secondary bg-primary" type="button" id="button"><i class="fa fa-search bg-primary" aria-hidden="true"></i></button>
+            <div class="col-4">
+                <h3>Search for a City:</h3>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="ex. San Francisco" id=text
+                        aria-label="Recipient's username" aria-describedby="button-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary bg-primary" type="button" id="button"><i
+                                class="fa fa-search bg-primary" aria-hidden="true"></i></button>
+                    </div>
                 </div>
-              </div>
+                <div id=historicalRows></div>
             </div>
-          <div class="col-sm-8">
+            <div class="col-sm-8">
                 <div class="container">
                     <div id="selectedCity"></div><br></hr>
-                    <img id="weatherIcon"/></br>
-                    <div><h5 id="currentDate" class="text-right"></h5></div></br></hr>
-                        <div id="currentTemp"></div></br></hr>
-                        <div id="humidity"></div></br></hr>
-                        <div id="windSpeed"></div></br></hr>
-                        <div id="uvIndex"></div></br></hr>
-                    </div>
+                    <img id="weatherIcon" /></br>
+                    <div>
+                    <h5 id="currentDate" class="text-right"></h5>
+                    </div></br></hr>
+                    <div id="currentTemp"></div></br></hr>
+                    <div id="humidity"></div></br></hr>
+                    <div id="windSpeed"></div></br></hr>
+                    <div id="uvIndex"></div></br></hr>
                 </div>
             </div>
         </div>
-        <div class="row" >
-            <div class="col-md-4" id=historicalRows>test</div>
-            <div class="col-md-8">
-              <h3>5-Day Forecast:</h3>
-              <div class="row" id="forecastId">
+    </div>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-8">
+            <h3>5-Day Forecast:</h3>
+            <div class="row" id="forecastId">
                 <!-- <div class="col-md-2">
                     <div class="card" style="width: 10rem;">
                         <div class="card-body">
-                          <h5 class="card-date" id=card1></h5>
-                          <h6 class="icon5Day" id="icon1"></h6>
-                          <h6 class="cardTemp" id="card1Temp"></h6>
-                          <h6 class="cardHumidity" id="card1Humidity"></h6>
+                            <h5 class="card-date" id=card1></h5>
+                            <h6 class="icon5Day" id="icon1"></h6>
+                            <h6 class="cardTemp" id="card1Temp"></h6>
+                            <h6 class="cardHumidity" id="card1Humidity"></h6>
                         </div>
                     </div>
                 </div> -->
@@ -58,10 +66,10 @@
 
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script type="text/javascript" src="script.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+        <script type="text/javascript" src="script.js"></script>
 
 </body>
-  
+
 </html>

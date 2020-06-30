@@ -9,7 +9,7 @@ $(document).ready(function () {
     function displayLocalStorage() {
         $("#historicalRows").empty();
         for (let i = 0; i < cityHistory.length; i++) {
-            $("#historicalRows").append(`<div><button class="previousCities">${cityHistory[i]}</button></div>`)
+            $("#historicalRows").append(`<div><button class="previousCities btn btn-primary">${cityHistory[i]}</button></div>`)
         }
     }
     function forecast (newCity) {
@@ -23,6 +23,12 @@ $(document).ready(function () {
             console.log(queryURL);
             // Log the resulting object
             console.log(response);
+            if (cityHistory.indexOf(newCity) === -1) {
+                cityHistory.push(newCity);
+                localStorage.setItem("cityList", JSON.stringify(cityHistory));
+                console.log(cityHistory);
+                displayLocalStorage ();
+            }
             // Transfer content to HTML
             $("#selectedCity").html("<h3>" + response.name + " </h3>");
             //insert weather icon
@@ -64,24 +70,21 @@ $(document).ready(function () {
                     $("#uvIndex").css("background-color", "violet");
                 }
             })
-
-            //call function to create new rows
-            // populateRows(cityHistory, "#historicalRows")
         })
     }
 
+    $("#historicalRows").on("click", ".previousCities", function(){
+        
+        var newCity = $(this).text();
+        console.log(newCity);
+        forecast(newCity);
+    })
     //event listener
     $("#button").click(function (event) {
         event.preventDefault();
         //capture user input and store in local storage and array
         newCity = $("#text").val().trim();
         console.log(newCity);
-        if (cityHistory.indexOf(newCity) === -1) {
-            cityHistory.push(newCity);
-            localStorage.setItem("cityList", JSON.stringify(cityHistory));
-            console.log(cityHistory);
-            displayLocalStorage ();
-        }
         forecast (newCity);
         // //recall from storage and display below search field
 
@@ -91,8 +94,7 @@ $(document).ready(function () {
     })
     function fiveDayForecast(lat, long) {
         // 5-day forecast
-
-        var fiveDayQueryURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + long + "&exclude=current,minutely,hourly&appid=ef5a31cf3e6b80b9a71631a627c91754";
+        var fiveDayQueryURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + long + "&units=imperial&exclude=current,minutely,hourly&appid=ef5a31cf3e6b80b9a71631a627c91754";
         $.ajax({
             url: fiveDayQueryURL,
             method: "GET"
@@ -110,8 +112,8 @@ $(document).ready(function () {
                     <div class="card-body">
                       <h5 class="card-date" id=card4>${dates5day}</h5>
                       <img class="icon5Day" id="icon4" src="http://www.openweathermap.org/img/wn/${data[i].weather[0].icon}@2x.png"/>
-                      <h6 class="cardTemp" id="card4Temp">${data[i].temp.max}</h6>
-                      <h6 class="cardHumidity" id="card4Humidity">${data[i].humidity}</h6>
+                      <h6 class="cardTemp" id="card4Temp">High Temp (F)${data[i].temp.max}</h6>
+                      <h6 class="cardHumidity" id="card4Humidity">Humidity: ${data[i].humidity}%</h6>
                     </div>
                 </div>
                </div>`)

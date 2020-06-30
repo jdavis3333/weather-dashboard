@@ -45,9 +45,16 @@ You are required to submit the following for review:
 
 Pseudo Code
 
-1. create format with bootstrap DONE
+<!-- 1. create format with bootstrap DONE -->
 
-2. create a search bar with submit feature that will save the history. prepend results below search bar. 
+<!-- 2. create a search bar with submit feature  -->
+
+that will save the entry to a new variable (var = newCity). 
+
+
+
+prepend results below search bar. 
+
 
 3. use the search feature's find button (onClick) to call api using ajax and write the resutls in the upper right portion of the page.
 
