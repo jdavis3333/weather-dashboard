@@ -78,10 +78,12 @@ $(document).ready(function () {
         var newCity = $(this).text();
         console.log(newCity);
         forecast(newCity);
+        $("#forecastId").empty();
     })
     //event listener
     $("#button").click(function (event) {
         event.preventDefault();
+        $("#forecastId").empty();
         //capture user input and store in local storage and array
         newCity = $("#text").val().trim();
         console.log(newCity);
@@ -112,7 +114,7 @@ $(document).ready(function () {
                     <div class="card-body">
                       <h5 class="card-date" id=card4>${dates5day}</h5>
                       <img class="icon5Day" id="icon4" src="http://www.openweathermap.org/img/wn/${data[i].weather[0].icon}@2x.png"/>
-                      <h6 class="cardTemp" id="card4Temp">High Temp (F)${data[i].temp.max}</h6>
+                      <h6 class="cardTemp" id="card4Temp">High Temp (F) ${data[i].temp.max}</h6>
                       <h6 class="cardHumidity" id="card4Humidity">Humidity: ${data[i].humidity}%</h6>
                     </div>
                 </div>
