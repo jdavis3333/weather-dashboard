@@ -1,6 +1,6 @@
 $(document).ready(function () {
     var newCity;
-    var cityHistory = JSON.parse(localStorage.getItem("cityList"))||["San Francisco"];
+    var cityHistory = JSON.parse(localStorage.getItem("cityList")) || ["San Francisco"];
 
 
     //Day
@@ -12,7 +12,7 @@ $(document).ready(function () {
             $("#historicalRows").append(`<div><button class="previousCities btn btn-primary">${cityHistory[i]}</button></div>`)
         }
     }
-    function forecast (newCity) {
+    function forecast(newCity) {
         var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + newCity + "&appid=ef5a31cf3e6b80b9a71631a627c91754";
 
         $.ajax({
@@ -27,7 +27,7 @@ $(document).ready(function () {
                 cityHistory.push(newCity);
                 localStorage.setItem("cityList", JSON.stringify(cityHistory));
                 console.log(cityHistory);
-                displayLocalStorage ();
+                displayLocalStorage();
             }
             // Transfer content to HTML
             $("#selectedCity").html("<h3>" + response.name + " </h3>");
@@ -72,9 +72,8 @@ $(document).ready(function () {
             })
         })
     }
-
-    $("#historicalRows").on("click", ".previousCities", function(){
-        
+    
+    $("#historicalRows").on("click", ".previousCities", function () {
         var newCity = $(this).text();
         console.log(newCity);
         forecast(newCity);
@@ -87,12 +86,8 @@ $(document).ready(function () {
         //capture user input and store in local storage and array
         newCity = $("#text").val().trim();
         console.log(newCity);
-        forecast (newCity);
-        // //recall from storage and display below search field
+        forecast(newCity);
 
-        //ajax functionality
-        //Search City
-       
     })
     function fiveDayForecast(lat, long) {
         // 5-day forecast
